@@ -36,14 +36,6 @@ paths:
           content:
             application/json:
               schema: { $ref: "#/components/schemas/Order" }
-  /api/customers/{id}:
-    get:
-      operationId: getCustomer
-      parameters:
-        - { name: id, in: path, required: true, schema: { type: string } }
-      responses:
-        "200":
-          description: ok
 components:
   schemas:
     NewOrder:
