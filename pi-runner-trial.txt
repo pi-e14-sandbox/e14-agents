@@ -1,0 +1,1 @@
+pi-runner trial: the runner and its isolation work
