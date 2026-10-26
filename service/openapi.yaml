@@ -44,6 +44,19 @@ paths:
       responses:
         "200":
           description: ok
+  /api/health:
+    get:
+      operationId: health
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok: { type: boolean }
 components:
   schemas:
     NewOrder:

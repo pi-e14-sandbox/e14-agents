@@ -4,7 +4,7 @@ import re
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 ORDERS = {}
-ROUTES = [('GET', r'^/api/orders$', 'list_orders'), ('POST', r'^/api/orders$', 'create_order'), ('GET', r'^/api/orders/([^/]+)$', 'get_order'), ('GET', r'^/api/customers/([^/]+)$', 'get_customer')]
+ROUTES = [('GET', r'^/api/orders$', 'list_orders'), ('POST', r'^/api/orders$', 'create_order'), ('GET', r'^/api/orders/([^/]+)$', 'get_order'), ('GET', r'^/api/customers/([^/]+)$', 'get_customer'), ('GET', r'^/api/health$', 'health')]
 
 
 def route(method, path):
@@ -32,6 +32,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         name, args = route('GET', self.path)
+        if name == 'health':
+            return self._send(200, {'ok': True})
         if name == 'list_orders':
             return self._send(200, list(ORDERS.values()))
         if name == 'get_order' and args[0] in ORDERS:
