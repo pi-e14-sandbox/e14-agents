@@ -1,0 +1,11 @@
+{
+  "name": "e14-agents-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
